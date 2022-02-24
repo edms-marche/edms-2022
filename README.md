@@ -42,7 +42,11 @@
 
 <p align="center"><img src="./docs/images/edms_structure.png" title="Marche Logo" /></p>
 
+------
+
 <mark>2022.02.15 paulus: 由 ESXi 改為 Proxmox</mark>
+
+------
 
 個底層係隻 DELL C6100 其中 1 隻 Node，有 64 GB RAM 任用，目前分配 32GB 俾 Docker，Storage 隨便你俾，暫時 Docker 用 Synology 有 ４TB。
 
