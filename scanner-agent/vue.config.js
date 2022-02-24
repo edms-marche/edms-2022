@@ -2,7 +2,7 @@ module.exports = {
   "transpileDependencies": [
     "vuetify"
   ],
-  publicPath: '/demo-webapp-vuetify-i18n/',
+  publicPath: '/scanner-agent/',
   chainWebpack: config => {
     config.module
       .rule('i18n')
