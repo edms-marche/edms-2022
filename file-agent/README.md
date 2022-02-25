@@ -39,7 +39,7 @@ Firebase data:
 npm install
 ```
 
-如果你部機未安裝 npm or node，去[官網](https://nodejs.org/en/)下載，我用嘅版本係 14.16.0 LTS，記得安裝嘅時候勾選埋 Tools，因為如果為咗慳啲 storage 你自己個別去安裝會幾麻煩嘅，俾個 installer 幫你一手一腳就係最佳選擇。
+如果你部機未安裝 npm or node，去[官網](https://nodejs.org/en/)下載，我用嘅版本係 ``Node v14.19.6 npm v6.14.16``，記得安裝嘅時候勾選埋 Tools，因為如果為咗慳啲 storage 你自己個別去安裝會幾麻煩嘅，俾個 installer 幫你一手一腳就係最佳選擇。
 
 睇下，安裝咗幾多嘢！
 
@@ -74,6 +74,7 @@ Upgraded:
 ### Compiles and hot-reloads for development
 
 ```
+npm install
 npm run serve
 ```
 
@@ -99,10 +100,12 @@ npm run lint
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### Ref
+### Ref:
 
 node v14.19.0
+
 npm v6.14.16
+
 - https://github.com/intlify/vue-i18n-loader
 - https://vuetifyjs.com
 - https://alligator.io/vuejs/vuex-persist-state
