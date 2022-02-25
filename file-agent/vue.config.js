@@ -23,7 +23,7 @@ module.exports = {
     "vuetify"
   ],
 
-  publicPath: '/',
+  publicPath: '/file-agent/',
   
   chainWebpack: config => {
     config.module
