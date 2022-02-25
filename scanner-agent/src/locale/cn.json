@@ -1,0 +1,62 @@
+{
+    "app-title": "扫瞄上传",
+    "login-welcome": "请登入",
+    "theme": "转换风格",
+    "lang": "转换语言",
+    "side-nav": {
+      "login": "用户登入",
+      "reset": "清除设定"
+    },
+    "close": "关闭",
+    "main-nav": {
+      "plate": "锌板",
+      "film": "菲林"
+    },
+    "plate": {
+      "title": "锌板",
+      "greyscale": "灰阶输出",
+      "black-overprint": "黑色叠印",
+      "spot-to-cmyk": "专色转 CMYK",
+      "dot-gain-50": "无网点补偿",
+      "dot-gain-43": "网点补偿 43%",
+      "dot-gain-40": "网点补偿 40%"
+    },
+    "film": {
+      "title": "菲林",
+      "positive": "阳片",
+      "negative": "阴片",
+      "emulsion-up": "药膜向上",
+      "emulsion-down": "药膜向下",
+      "color-separation": "分色输出"
+    },
+    "uploader": {
+      "upload": "上传档案",
+      "upload-help-text": "选出档案／拖拉档案至此",
+      "upload-size-error": "Files should not exceed 512MB in size",
+      "upload-type-error": "文件类型无效，仅允许 PDF 或 PS"
+    },
+    "login": {
+      "title": "用户登入",
+      "login": "登入",
+      "logout": "登出",
+      "username": "输入你在 edms 登记的电邮地址",
+      "password": "输入你的 edms 登入密码",
+      "email-required": "电邮不可空白，必需输入",
+      "email-is-invalid": "电邮格式无效，请正确填写",
+      "password-required": "密码不可空白，必需输入",
+      "failed": "登入失败",
+      "loggedOut": "用户已登出"
+    },
+    "reset": {
+      "title": "清除设定",
+      "reset": "清除",
+      "warning": "如果你按「清除」，所有储存的数据将被删除，包括您的登入资料。 之後您需要再次登录。",
+      "done": "清除设定...完成"
+    },
+    "upload": {
+      "failed": "上传失败",
+      "succeed": "上传成功",
+      "waiting": "上传中"
+    }
+  }
+  
