@@ -1,5 +1,5 @@
 {
-  "app-title": "掃瞄上傳",
+  "app-title": "檔案上傳",
   "login-welcome": "請登入",
   "theme": "轉換風格",
   "lang": "轉換語言",
@@ -9,6 +9,8 @@
   },
   "close": "關閉",
   "main-nav": {
+    "jb5": "JB5",
+    "filing": "文件歸檔",
     "plate": "鋅板",
     "film": "菲林"
   },
@@ -57,5 +59,16 @@
     "failed": "上傳失敗",
     "succeed": "上傳成功",
     "waiting": "上傳中"
+  },
+  "jb5": {
+    "name": "JB5",
+    "job-number": "工單號碼",
+    "job-number-required": "工單號碼（不可空白，例子：123456-1）"
+  },
+  "filing": {
+    "name": "歸檔",
+    "folder-optional": "檔案夾（可以留空，例子：/Parent/Child）",
+    "file-number": "文件編號",
+    "file-number-required": "文件編號（不可空白，例子：A123456-2022）"
   }
 }

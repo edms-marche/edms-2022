@@ -13,12 +13,22 @@ const routes = [
       {
         name: 'plate',
         path: '/plate',
-        alias: '/',
+/*        alias: '/',   */
         component: () => import(/* webpackChunkName: "plate_page" */ '@/views/PlatePage')
       }, {
         name: 'film',
         path: '/film',
         component: () => import(/* webpackChunkName: "film_page" */ '@/views/FilmPage')
+      },
+      {
+        name: 'jb5',
+        path: '/jb5',
+        alias: '/',
+        component: () => import(/* webpackChunkName: "jb5_page" */ '@/views/JB5Page')
+      }, {
+        name: 'filing',
+        path: '/filing',
+        component: () => import(/* webpackChunkName: "filing_page" */ '@/views/FilingPage')
       }
     ]
   }, {

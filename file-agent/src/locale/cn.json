@@ -1,5 +1,5 @@
 {
-    "app-title": "扫瞄上传",
+    "app-title": "档案上传",
     "login-welcome": "请登入",
     "theme": "转换风格",
     "lang": "转换语言",
@@ -9,6 +9,8 @@
     },
     "close": "关闭",
     "main-nav": {
+      "jb5": "JB5",
+      "filing": "文件归档",
       "plate": "锌板",
       "film": "菲林"
     },
@@ -57,6 +59,17 @@
       "failed": "上传失败",
       "succeed": "上传成功",
       "waiting": "上传中"
-    }
-  }
+    },
+    "jb5": {
+      "name": "JB5",
+      "job-number": "工单号码",
+      "job-number-required": "工单号码（不可空白，例子：123456-1）"
+    },
+    "filing": {
+      "name": "归档",
+      "folder-optional": "档案夹（可以留空，例子：/Parent/Child）",
+      "file-number": "文件编号",
+      "file-number-required": "文件编号（不可空白，例子：A123456-2022）"
+      }
+}
   

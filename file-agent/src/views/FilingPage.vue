@@ -278,29 +278,6 @@
         <v-text-field name="username" prepend-icon="mdi-alpha-f-box-outline" :label="$t('filing.file-number-required')" v-model="username" @keypress="isLetterNumberDashDotUnderscoreNoSpace($event)" required></v-text-field>
       </v-row>
       <v-row no-gutters align="center">
-        <v-col cols=3>
-          <v-checkbox v-model="chkPositive" class="mx-2" :label="$t('film.positive')" :value="chkPositive"
-            @change="onOptionChanged($event, 'chkPositive')">
-          </v-checkbox>
-        </v-col>
-        <v-col cols=3>
-          <v-checkbox v-model="chkNegative" class="mx-2" :label="$t('film.negative')" :value="chkNegative"
-            @change="onOptionChanged($event, 'chkNegative')">
-          </v-checkbox>
-        </v-col>
-        <v-col cols=3>
-          <v-checkbox v-model="chkEmulsionUp" class="mx-2" :label="$t('film.emulsion-up')" :value="chkEmulsionUp"
-            @change="onOptionChanged($event, 'chkEmulsionUp')">
-          </v-checkbox>
-        </v-col>
-        <v-col cols=3>
-          <v-checkbox v-model="chkEmulsionDown" class="mx-2" :label="$t('film.emulsion-down')" :value="chkEmulsionDown"
-            @change="onOptionChanged($event, 'chkEmulsionDown')">
-          </v-checkbox>
-        </v-col>
-      </v-row>
-      <v-divider></v-divider>
-      <v-row no-gutters align="center">
         <v-col cols=12>
           <v-checkbox v-model="chkColorSeparation" class="mx-2" :label="$t('film.color-separation')" :value="chkColorSeparation"
           @change="onOptionChanged($event, 'chkColorSeparation')">

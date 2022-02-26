@@ -266,6 +266,16 @@
         this.fileRecords = [];    // 清理 uploader
         this.cmdUpload++;         // 復完 上傳 button
       },
+      isLetterNumber(e) {
+        let char = String.fromCharCode(e.keyCode);
+        if (/^[A-Za-z0-9]+$/.test(char)) return true;
+        else e.preventDefault();
+      },
+      isLetterNumberDashNoSpace(e) {
+        let char = String.fromCharCode(e.keyCode);
+        if (/^[A-Za-z0-9-]+$/.test(char)) return true;
+        else e.preventDefault();
+      },
     }
   }
 </script>
@@ -276,10 +286,14 @@
       <v-layout text-center>
         <v-flex>
           <v-alert text >
-            {{ $t('plate.title') }}
+            {{ $t('jb5.name') }}
           </v-alert>
         </v-flex>
       </v-layout>
+      <v-row no-gutters align="center">
+        <!-- 工單號碼 -->
+        <v-text-field name="username" prepend-icon="mdi-numeric-5-box" :label="$t('jb5.job-number-required')" v-model="username" @keypress="isLetterNumberDashNoSpace($event)" required></v-text-field>
+      </v-row>
       <v-row no-gutters align="center">
         <v-col cols=4>
           <v-checkbox v-model="chkGreyscale" class="mx-2" :label="$t('plate.greyscale')" :value="chkGreyscale"

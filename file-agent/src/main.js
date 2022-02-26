@@ -23,7 +23,7 @@ new Vue({
   vuetify,
   created() {
     // 跳去 landing-page
-    const initPage = localStorage.getItem('landing-page') === undefined ? 'plate' : localStorage.getItem('landing-page');
+    const initPage = localStorage.getItem('landing-page') === undefined ? 'jb5' : localStorage.getItem('landing-page');
     this.$router.push({ name: initPage });
   },
   render: h => h(App)

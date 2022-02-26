@@ -23,7 +23,7 @@ module.exports = {
     "vuetify"
   ],
 
-  publicPath: '/file-agent/',
+  publicPath: '/',    //! 不可以用 sub-directory，奇怪？
   
   chainWebpack: config => {
     config.module

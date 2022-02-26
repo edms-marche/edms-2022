@@ -21,7 +21,7 @@ export default {
             false : true;
         // 根據 localStorage.landing-page 數值修正 bottomNav，顯示 highlighted
         this.bottomNav = localStorage.getItem('landing-page') === undefined ?
-            'plate' : localStorage.getItem('landing-page');
+            'jb5' : localStorage.getItem('landing-page');
         window.console.log('Home mounted');
     },
 
@@ -73,8 +73,8 @@ export default {
         onBottomNavClick(val, tag) {
             window.console.log(val, tag, this.bottomNav);
 
-            localStorage.setItem('landing-page', tag == 'btnPlate' ? 'plate' : 'film');
-            this.bottomNav = tag == 'btnPlate' ? 'plate' : 'film';
+            localStorage.setItem('landing-page', tag == 'btnJB5' ? 'jb5' : 'filing');
+            this.bottomNav = tag == 'btnJB5' ? 'jb5' : 'filing';
 
             window.console.log(val, tag, this.bottomNav);
         }
@@ -194,12 +194,12 @@ export default {
 
         <!-- Bottom nav bar -->
         <v-bottom-navigation grow v-model="bottomNav" >
-            <v-btn value="plate" to="/plate" @click="onBottomNavClick( $event, 'btnPlate' )" >
-                <span>{{ $t('main-nav.plate') }}</span>
-                <v-icon>mdi-alpha-p-box</v-icon>
+            <v-btn value="jb5" to="/jb5" @click="onBottomNavClick( $event, 'btnJB5' )" >
+                <span>{{ $t('main-nav.jb5') }}</span>
+                <v-icon>mdi-numeric-5-box</v-icon>
             </v-btn>
-            <v-btn value="film" to="/film" @click="onBottomNavClick( $event, 'btnFilm' )" >
-                <span>{{ $t('main-nav.film') }}</span>
+            <v-btn value="filing" to="/filing" @click="onBottomNavClick( $event, 'btnFiling' )" >
+                <span>{{ $t('main-nav.filing') }}</span>
                 <v-icon>mdi-alpha-f-box-outline</v-icon>
             </v-btn>
         </v-bottom-navigation>

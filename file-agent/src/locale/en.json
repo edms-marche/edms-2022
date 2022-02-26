@@ -9,6 +9,8 @@
   },
   "close": "Close",
   "main-nav": {
+    "jb5": "JB5",
+    "filing": "Filing",
     "plate": "Plate",
     "film": "Film"
   },
@@ -57,5 +59,16 @@
     "failed": "Upload failed",
     "succeed": "Upload succeeded",
     "waiting": "Upload"
+  },
+  "jb5": {
+    "name": "JB5",
+    "job-number": "Job Number",
+    "job-number-required": "Job Number is required, e.g. 123456-1"
+  },
+  "filing": {
+    "name": "Filing",
+    "folder-optional": "Folder is optional, e.g. /Parent/Child",
+    "file-number": "File Number",
+    "file-number-required": "File Number is required, e.g. A1234-2022"
   }
 }
