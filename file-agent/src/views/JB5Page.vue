@@ -294,23 +294,6 @@
         <!-- 工單號碼 -->
         <v-text-field name="jobNumber" prepend-icon="mdi-numeric-5-box" :label="$t('jb5.job-number-required')" v-model="jobNumber" @keypress="isLetterNumberDashNoSpace($event)" required></v-text-field>
       </v-row>
-      <v-row no-gutters align="center">
-        <v-col cols=4>
-          <v-checkbox v-model="chkGreyscale" class="mx-2" :label="$t('plate.greyscale')" :value="chkGreyscale"
-          @change="onOptionChanged($event, 'chkGreyscale')"
-          ></v-checkbox>
-        </v-col>
-        <v-col cols=4>
-          <v-checkbox v-model="chkBlackOverprint" class="mx-2" :label="$t('plate.black-overprint')" :value="chkBlackOverprint"
-          @change="onOptionChanged($event, 'chkBlackOverprint')"
-          ></v-checkbox>
-        </v-col>
-        <v-col cols=4>
-          <v-checkbox v-model="chkSpotToCMYK" class="mx-2" :label="$t('plate.spot-to-cmyk')" :value="chkSpotToCMYK"
-          @change="onOptionChanged($event, 'chkSpotToCMYK')"
-          ></v-checkbox>
-        </v-col>
-      </v-row>
 
       <!-- File Uploader -->
       <VueFileAgent 

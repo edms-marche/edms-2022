@@ -67,6 +67,7 @@
   },
   "filing": {
     "name": "Filing",
+    "category": "Category",
     "folder-optional": "Folder is optional, e.g. /Parent/Child",
     "file-number": "File Number",
     "file-number-required": "File Number is required, e.g. A1234-2022"

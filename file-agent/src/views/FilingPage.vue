@@ -16,6 +16,8 @@
         cmdUpload: 1,
         snackbar: false,
         snackbarMessage: null,
+
+        categories: ['會計部', '人事部', '設計部'],
       };
     },
 
@@ -270,19 +272,20 @@
         </v-flex>
       </v-layout>
       <v-row no-gutters align="center">
+        <v-col class="d-flex" cols="6" sm="6">
+          <v-select prepend-icon="mdi-folder-outline" :items="categories" :label="$t('filing.category')"></v-select>
+        </v-col>
+        <v-col class="d-flex" cols="6" sm="6">
+          <v-subheader v-text="''"></v-subheader>
+        </v-col>
+      </v-row>
+      <v-row no-gutters align="center">
         <!-- 檔案號碼 -->
-        <v-text-field name="username" prepend-icon="mdi mdi-folder-multiple-outline" :label="$t('filing.folder-optional')" v-model="username" @keypress="isLetterNumberDashDotUnderscoreSlashNoSpace($event)" required></v-text-field>
+        <v-text-field name="username" prepend-icon="mdi mdi-folder-plus" :label="$t('filing.folder-optional')" v-model="username" @keypress="isLetterNumberDashDotUnderscoreSlashNoSpace($event)" required></v-text-field>
       </v-row>
       <v-row no-gutters align="center">
         <!-- 檔案號碼 -->
         <v-text-field name="username" prepend-icon="mdi-alpha-f-box-outline" :label="$t('filing.file-number-required')" v-model="username" @keypress="isLetterNumberDashDotUnderscoreNoSpace($event)" required></v-text-field>
-      </v-row>
-      <v-row no-gutters align="center">
-        <v-col cols=12>
-          <v-checkbox v-model="chkColorSeparation" class="mx-2" :label="$t('film.color-separation')" :value="chkColorSeparation"
-          @change="onOptionChanged($event, 'chkColorSeparation')">
-          </v-checkbox>
-        </v-col>
       </v-row>
 
       <!-- File Uploader -->

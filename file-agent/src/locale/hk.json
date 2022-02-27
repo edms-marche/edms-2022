@@ -67,6 +67,7 @@
   },
   "filing": {
     "name": "歸檔",
+    "category": "分類",
     "folder-optional": "檔案夾（可以留空，例子：/Parent/Child）",
     "file-number": "文件編號",
     "file-number-required": "文件編號（不可空白，例子：A123456-2022）"

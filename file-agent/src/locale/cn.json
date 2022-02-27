@@ -67,6 +67,7 @@
     },
     "filing": {
       "name": "归档",
+      "category": "分类",
       "folder-optional": "档案夹（可以留空，例子：/Parent/Child）",
       "file-number": "文件编号",
       "file-number-required": "文件编号（不可空白，例子：A123456-2022）"
