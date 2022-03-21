@@ -17,7 +17,7 @@
         snackbar: false,
         snackbarMessage: null,
 
-        categories: ['會計部', '人事部', '設計部'],
+        categories: ['Admin', 'Artwork'],
       };
     },
 
@@ -129,7 +129,7 @@
           formData.append( "eolor-separation", this.chkColorSeparation );
           formData.append( "upload-file", fileRecord.file );                    // attach the file
 
-        var _UploadUrl = 'https://rest.directoutput.com.hk/api/easyrip/film/' ;
+        var _UploadUrl = 'https://rest.directoutput.com.hk/api/fileAgent/film/' ;
 
         window.console.log( "Endpoint: ", _UploadUrl );
 
@@ -199,7 +199,7 @@
             formData.append( "upload-file", fileRecord.file );                  // attach the file
           }
 
-        var _UploadUrl = 'https://rest.directoutput.com.hk/api/easyrip/film/' ;
+        var _UploadUrl = 'https://rest.directoutput.com.hk/api/fileAgent/film/' ;
 
         window.console.log( "Endpoint: ", _UploadUrl );
 
@@ -273,7 +273,7 @@
       </v-layout>
       <v-row no-gutters align="center">
         <v-col class="d-flex" cols="6" sm="6">
-          <v-select prepend-icon="mdi-folder-outline" :items="categories" :label="$t('filing.category')"></v-select>
+          <v-select v-model="selectedCategory" prepend-icon="mdi-folder-outline" :items="categories" :label="$t('filing.category')" required></v-select>
         </v-col>
         <v-col class="d-flex" cols="6" sm="6">
           <v-subheader v-text="''"></v-subheader>
@@ -281,11 +281,11 @@
       </v-row>
       <v-row no-gutters align="center">
         <!-- 檔案號碼 -->
-        <v-text-field name="username" prepend-icon="mdi mdi-folder-plus" :label="$t('filing.folder-optional')" v-model="username" @keypress="isLetterNumberDashDotUnderscoreSlashNoSpace($event)" required></v-text-field>
+        <v-text-field name="fileFolder" prepend-icon="mdi mdi-folder-plus" :label="$t('filing.folder-optional')" v-model="username" @keypress="isLetterNumberDashDotUnderscoreSlashNoSpace($event)"></v-text-field>
       </v-row>
       <v-row no-gutters align="center">
         <!-- 檔案號碼 -->
-        <v-text-field name="username" prepend-icon="mdi-alpha-f-box-outline" :label="$t('filing.file-number-required')" v-model="username" @keypress="isLetterNumberDashDotUnderscoreNoSpace($event)" required></v-text-field>
+        <v-text-field name="fileNumber" prepend-icon="mdi-alpha-f-box-outline" :label="$t('filing.file-number-required')" v-model="username" @keypress="isLetterNumberDashDotUnderscoreNoSpace($event)" required></v-text-field>
       </v-row>
 
       <!-- File Uploader -->
