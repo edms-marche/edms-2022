@@ -4,7 +4,7 @@ import { AUTH_LOGOUT } from "../actions/auth";
 
 import axios from 'axios';
 
-const _BaseURL = "https://rest.directoutput.com.hk/api";   //* 唔同 api 就改
+const _BaseURL = "https://rest.marche.com.hk/api";   //* 唔同 api 就改
 
 const state = { status: "", profile: {} };
 

@@ -129,7 +129,7 @@
           formData.append( "eolor-separation", this.chkColorSeparation );
           formData.append( "upload-file", fileRecord.file );                    // attach the file
 
-        var _UploadUrl = 'https://rest.directoutput.com.hk/api/fileAgent/film/' ;
+        var _UploadUrl = 'https://rest.marche.com.hk/api/fileAgent/filing/' ;
 
         window.console.log( "Endpoint: ", _UploadUrl );
 
@@ -199,7 +199,7 @@
             formData.append( "upload-file", fileRecord.file );                  // attach the file
           }
 
-        var _UploadUrl = 'https://rest.directoutput.com.hk/api/fileAgent/film/' ;
+        var _UploadUrl = 'https://rest.marche.com.hk/api/fileAgent/filing/' ;
 
         window.console.log( "Endpoint: ", _UploadUrl );
 

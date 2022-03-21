@@ -4,7 +4,7 @@ import { USER_REQUEST } from "../actions/user";
 
 import axios from 'axios';
 
-const _BaseURL = "https://rest.directoutput.com.hk/api";   //* 唔同 api 就改
+const _BaseURL = "https://rest.marche.com.hk/api";   //* 唔同 api 就改
 
 const state = {
   token: localStorage.getItem("user-jwt-token") || "",

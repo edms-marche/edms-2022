@@ -137,7 +137,7 @@
           formData.append( "dot-gain-40", this.chkDotGain40 );
           formData.append( "upload-file", fileRecord.file );                    // attach the file
 
-        var _UploadUrl = 'https://rest.directoutput.com.hk/api/fileAgent/plate/' ;
+        var _UploadUrl = 'https://rest.marche.com.hk/api/fileAgent/plate/' ;
 
         window.console.log( "Endpoint: ", _UploadUrl );
 
@@ -218,7 +218,7 @@
             formData.append( "upload-file", fileRecord.file );                  // attach the file
           }
 
-        var _UploadUrl = 'https://rest.directoutput.com.hk/api/fileAgent/plate/' ;
+        var _UploadUrl = 'https://rest.marche.com.hk/api/fileAgent/plate/' ;
 
         window.console.log( "Endpoint: ", _UploadUrl );
 
