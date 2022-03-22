@@ -78,7 +78,7 @@ const actions = {
     return new Promise((resolve, reject) => {                     // The Promise used for router redirect in login
       commit(AUTH_SUBSCRIBE_FCM);
 
-      const url = `${_BaseURL}/easyrip/subscribe/`;
+      const url = `${_BaseURL}/fileAgent/subscribe/`;
       const data = {
         FCM: {
           Token: localStorage.getItem('user-fcm-token')

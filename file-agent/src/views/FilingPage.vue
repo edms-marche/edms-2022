@@ -187,13 +187,13 @@
       uploadAllFiles ( ) {
         // const suffix = getFileExtension(fileRecord.file.name).toLowerCase();
 
-        // 用 FormData 傳送 client 資料去 server
+        //* 用 FormData 傳送 user 填寫咗嘅資料去 server
         const formData = new FormData();
-          formData.append( "positive", this.chkPositive );
-          formData.append( "negative", this.chkNegative );
-          formData.append( "emulsion-up", this.chkEmulsionUp );
-          formData.append( "emulsion-down", this.chkEmulsionDown );
-          formData.append( "color-separation", this.chkColorSeparation );
+          formData.append( "category", this.selectedCategory );
+          formData.append( "file-folder", this.fileFolder );
+          formData.append( "file-number", this.fileNumber );
+          // formData.append( "emulsion-down", this.chkEmulsionDown );
+          // formData.append( "color-separation", this.chkColorSeparation );
 
           for (const fileRecord of this.fileRecords) {
             formData.append( "upload-file", fileRecord.file );                  // attach the file

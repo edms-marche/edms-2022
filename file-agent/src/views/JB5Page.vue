@@ -5,12 +5,12 @@
   export default {
     data () {
       return {
-        chkGreyscale: false,
-        chkBlackOverprint: false,
-        chkSpotToCMYK: false,
-        chkDotGain50: true,
-        chkDotGain43: false,
-        chkDotGain40: false,
+        jobNumber: "",
+        // chkBlackOverprint: false,
+        // chkSpotToCMYK: false,
+        // chkDotGain50: true,
+        // chkDotGain43: false,
+        // chkDotGain40: false,
 
         fileRecords: [],
         loading: false,
@@ -30,12 +30,12 @@
       /**
        * 由 localStorage 攞番上次嘅選擇出嚟
        */
-      this.chkGreyscale = JSON.parse( localStorage.getItem( 'plate-greyscale' )) === true;
-      this.chkBlackOverprint = JSON.parse( localStorage.getItem( 'plate-black-overprint' )) === true;
-      this.chkSpotToCMYK = JSON.parse( localStorage.getItem( 'plate-spot-to-cmyk' )) === true;
-      this.chkDotGain50 = JSON.parse( localStorage.getItem( 'plate-dot-gain-50' )) === true;
-      this.chkDotGain43 = JSON.parse( localStorage.getItem( 'plate-dot-gain-43') ) === true;
-      this.chkDotGain40 = JSON.parse( localStorage.getItem( 'plate-dot-gain-40' )) === true;
+      // this.chkGreyscale = JSON.parse( localStorage.getItem( 'plate-greyscale' )) === true;
+      // this.chkBlackOverprint = JSON.parse( localStorage.getItem( 'plate-black-overprint' )) === true;
+      // this.chkSpotToCMYK = JSON.parse( localStorage.getItem( 'plate-spot-to-cmyk' )) === true;
+      // this.chkDotGain50 = JSON.parse( localStorage.getItem( 'plate-dot-gain-50' )) === true;
+      // this.chkDotGain43 = JSON.parse( localStorage.getItem( 'plate-dot-gain-43') ) === true;
+      // this.chkDotGain40 = JSON.parse( localStorage.getItem( 'plate-dot-gain-40' )) === true;
     },
 
     methods: {
@@ -129,12 +129,12 @@
 
         // 用 FormData 傳送 client 資料去 server
         const formData = new FormData();
-          formData.append( "greyscale", this.chkGreyscale );
-          formData.append( "black-overprint", this.chkBlackOverprint );
-          formData.append( "spot-to-cmyk", this.chkSpotToCMYK );
-          formData.append( "dot-gain-50", this.chkDotGain50 );
-          formData.append( "dot-gain-43", this.chkDotGain43 );
-          formData.append( "dot-gain-40", this.chkDotGain40 );
+          formData.append( "job-number", this.jobNumber );
+          // formData.append( "black-overprint", this.chkBlackOverprint );
+          // formData.append( "spot-to-cmyk", this.chkSpotToCMYK );
+          // formData.append( "dot-gain-50", this.chkDotGain50 );
+          // formData.append( "dot-gain-43", this.chkDotGain43 );
+          // formData.append( "dot-gain-40", this.chkDotGain40 );
           formData.append( "upload-file", fileRecord.file );                    // attach the file
 
         var _UploadUrl = 'https://rest.marche.com.hk/api/fileAgent/jb5/' ;
@@ -207,12 +207,12 @@
 
         // 用 FormData 傳送 client 資料去 server
         const formData = new FormData();
-          formData.append( "greyscale", this.chkGreyscale );
-          formData.append( "black-overprint", this.chkBlackOverprint );
-          formData.append( "spot-to-cmyk", this.chkSpotToCMYK );
-          formData.append( "dot-gain-50", this.chkDotGain50 );
-          formData.append( "dot-gain-43", this.chkDotGain43 );
-          formData.append( "dot-gain-40", this.chkDotGain40 );
+          formData.append( "job-number", this.jobNumber );
+          // formData.append( "black-overprint", this.chkBlackOverprint );
+          // formData.append( "spot-to-cmyk", this.chkSpotToCMYK );
+          // formData.append( "dot-gain-50", this.chkDotGain50 );
+          // formData.append( "dot-gain-43", this.chkDotGain43 );
+          // formData.append( "dot-gain-40", this.chkDotGain40 );
 
           for (const fileRecord of this.fileRecords) {
             formData.append( "upload-file", fileRecord.file );                  // attach the file
