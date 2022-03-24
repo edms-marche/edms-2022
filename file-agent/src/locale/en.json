@@ -8,6 +8,7 @@
     "reset": "Factory Reset"
   },
   "close": "Close",
+  "required-fields": "Required Fields",
   "main-nav": {
     "jb5": "JB5",
     "filing": "Filing",
@@ -68,6 +69,7 @@
   "filing": {
     "name": "Filing",
     "category": "Category",
+    "category-required": "Category is required",
     "folder-optional": "Folder is optional, e.g. /Parent/Child",
     "file-number": "File Number",
     "file-number-required": "File Number is required, e.g. A1234-2022"

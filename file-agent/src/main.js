@@ -9,10 +9,12 @@ import VueFileAgent from 'vue-file-agent';
 import VueFileAgentStyles from 'vue-file-agent/dist/vue-file-agent.css';
 import VueNotification from 'vue-notification'
 import velocity from 'velocity-animate'
+import VueSimpleAlert from "vue-simple-alert";
 
 Vue.config.productionTip = false
 Vue.use(VueFileAgent);
 Vue.use(VueNotification, { velocity });
+Vue.use(VueSimpleAlert);
 
 new Vue({
   VueFileAgent,

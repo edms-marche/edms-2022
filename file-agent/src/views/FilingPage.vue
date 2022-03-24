@@ -1,15 +1,17 @@
 <script>
   import i18nHelper from '@/utils/i18nHelper'
   import fnHelper from '@/utils/fnHelper'
-
+    
   export default {
     data() {
       return {
-        chkPositive: true,
-        chkNegative: false,
-        chkEmulsionUp: true,
-        chkEmulsionDown: false,
-        chkColorSeparation: false,
+        // chkPositive: true,
+        // chkNegative: false,
+        // chkEmulsionUp: true,
+        // chkEmulsionDown: false,
+        // chkColorSeparation: false,
+        fileFolder: '',
+        fileNumber: '',
 
         fileRecords: [],
         loading: false,
@@ -18,6 +20,7 @@
         snackbarMessage: null,
 
         categories: ['Admin', 'Artwork'],
+        invalidInput: false,
       };
     },
 
@@ -31,11 +34,11 @@
      * 由 localStorage 攞番上次嘅選擇出嚟
      */
     mounted() {
-      this.chkPositive = JSON.parse(localStorage.getItem('film-positive')) === true;
-      this.chkNegative = JSON.parse(localStorage.getItem('film-negative')) === true;
-      this.chkEmulsionUp = JSON.parse(localStorage.getItem('film-emulsion-up')) === true;
-      this.chkEmulsionDown = JSON.parse(localStorage.getItem('film-emulsion-down')) === true;
-      this.chkColorSeparation = JSON.parse(localStorage.getItem('film-color-separation')) === true;
+      // this.chkPositive = JSON.parse(localStorage.getItem('film-positive')) === true;
+      // this.chkNegative = JSON.parse(localStorage.getItem('film-negative')) === true;
+      // this.chkEmulsionUp = JSON.parse(localStorage.getItem('film-emulsion-up')) === true;
+      // this.chkEmulsionDown = JSON.parse(localStorage.getItem('film-emulsion-down')) === true;
+      // this.chkColorSeparation = JSON.parse(localStorage.getItem('film-color-separation')) === true;
     },
     methods: {
       onOptionChanged(val, tag) {
@@ -185,10 +188,34 @@
        * uploadAllFiles: 一次過，上傳哂所有檔案
        */
       uploadAllFiles ( ) {
-        // const suffix = getFileExtension(fileRecord.file.name).toLowerCase();
+        var invalidMessage = '';
+        if (this.selectedCategory == null) {
+          invalidMessage = this.$t('filing.category' ) + '</br>';
+          this.invalidInput = true;
+        }
+        if (this.fileNumber == null || this.fileNumber.length == 0) {
+          invalidMessage += this.$t( 'filing.file-number' );
+          this.invalidInput = true;
+        }
+        if (invalidMessage !== '') {
+          invalidMessage = '<div style="border: 2px dashed #aaa;">' + invalidMessage + '</div>'
+        }
 
-        //* 用 FormData 傳送 user 填寫咗嘅資料去 server
-        const formData = new FormData();
+        if (this.invalidInput) {
+          this.$fire({        // prompt error message
+            title: this.$t('required-fields'),
+            icon: 'error',
+            html: invalidMessage,
+            type: 'OK',
+            timer: 5000
+          });
+          this.cmdUpload++;   // enable click once button
+        }
+        else {
+          // const suffix = getFileExtension(fileRecord.file.name).toLowerCase();
+
+          //* 用 FormData 傳送 user 填寫咗嘅資料去 server
+          const formData = new FormData();
           formData.append( "category", this.selectedCategory );
           formData.append( "file-folder", this.fileFolder );
           formData.append( "file-number", this.fileNumber );
@@ -199,14 +226,14 @@
             formData.append( "upload-file", fileRecord.file );                  // attach the file
           }
 
-        var _UploadUrl = 'https://rest.marche.com.hk/api/fileAgent/filing/' ;
+          var _UploadUrl = 'https://rest.marche.com.hk/api/fileAgent/filing/' ;
 
-        window.console.log( "Endpoint: ", _UploadUrl );
+          window.console.log( "Endpoint: ", _UploadUrl );
 
-        /**
-         * 參考：https://javascript.info/xmlhttprequest
-         */
-        const xhr = new XMLHttpRequest();                                       // 1. Create a new XMLHttpRequest object
+          /**
+           * 參考：https://javascript.info/xmlhttprequest
+           */
+          const xhr = new XMLHttpRequest();                                     // 1. Create a new XMLHttpRequest object
 
           xhr.upload.addEventListener("loadstart", function (e) {
             window.console.log( 'Upload started', e.total );
@@ -244,8 +271,12 @@
             this.snackbar = true;
           };          
 
-        this.fileRecords = [];    // 清理 uploader
-        this.cmdUpload++;         // 復完 上傳 button
+          this.selectedCategory = 0;
+          this.fileFolder = '';
+          this.fileNumber = '';
+          this.fileRecords = [];        // 清理 uploader
+          this.cmdUpload++;             // 復完 上傳 button
+        }
       },
       isLetterNumberDashDotUnderscoreNoSpace(e) {
         let char = String.fromCharCode(e.keyCode);
@@ -281,11 +312,11 @@
       </v-row>
       <v-row no-gutters align="center">
         <!-- 檔案號碼 -->
-        <v-text-field name="fileFolder" prepend-icon="mdi mdi-folder-plus" :label="$t('filing.folder-optional')" v-model="username" @keypress="isLetterNumberDashDotUnderscoreSlashNoSpace($event)"></v-text-field>
+        <v-text-field name="fileFolder" prepend-icon="mdi mdi-folder-plus" :label="$t('filing.folder-optional')" v-model="fileFolder" @keypress="isLetterNumberDashDotUnderscoreSlashNoSpace($event)"></v-text-field>
       </v-row>
       <v-row no-gutters align="center">
         <!-- 檔案號碼 -->
-        <v-text-field name="fileNumber" prepend-icon="mdi-alpha-f-box-outline" :label="$t('filing.file-number-required')" v-model="username" @keypress="isLetterNumberDashDotUnderscoreNoSpace($event)" required></v-text-field>
+        <v-text-field name="fileNumber" prepend-icon="mdi-alpha-f-box-outline" :label="$t('filing.file-number-required')" v-model="fileNumber" @keypress="isLetterNumberDashDotUnderscoreNoSpace($event)" required></v-text-field>
       </v-row>
 
       <!-- File Uploader -->

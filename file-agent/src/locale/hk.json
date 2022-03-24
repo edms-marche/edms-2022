@@ -8,6 +8,7 @@
     "reset": "清除設定"
   },
   "close": "關閉",
+  "required-fields": "必選欄",
   "main-nav": {
     "jb5": "JB5",
     "filing": "文件歸檔",
@@ -68,6 +69,7 @@
   "filing": {
     "name": "歸檔",
     "category": "分類",
+    "category-required": "必需點選分類",
     "folder-optional": "檔案夾（可以留空，例子：/Parent/Child）",
     "file-number": "文件編號",
     "file-number-required": "文件編號（不可空白，例子：A123456-2022）"
