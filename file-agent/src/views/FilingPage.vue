@@ -5,11 +5,7 @@
   export default {
     data() {
       return {
-        // chkPositive: true,
-        // chkNegative: false,
-        // chkEmulsionUp: true,
-        // chkEmulsionDown: false,
-        // chkColorSeparation: false,
+        selectedCategory: null,
         fileFolder: '',
         fileNumber: '',
 
@@ -19,7 +15,7 @@
         snackbar: false,
         snackbarMessage: null,
 
-        categories: ['Admin', 'Artwork'],
+        categories: ['Admin', 'Artwork'],     // nextcloud 中的 Shared Folder
         invalidInput: false,
       };
     },
@@ -35,10 +31,6 @@
      */
     mounted() {
       // this.chkPositive = JSON.parse(localStorage.getItem('film-positive')) === true;
-      // this.chkNegative = JSON.parse(localStorage.getItem('film-negative')) === true;
-      // this.chkEmulsionUp = JSON.parse(localStorage.getItem('film-emulsion-up')) === true;
-      // this.chkEmulsionDown = JSON.parse(localStorage.getItem('film-emulsion-down')) === true;
-      // this.chkColorSeparation = JSON.parse(localStorage.getItem('film-color-separation')) === true;
     },
     methods: {
       onOptionChanged(val, tag) {
@@ -204,9 +196,8 @@
         if (this.invalidInput) {
           this.$fire({        // prompt error message
             title: this.$t('required-fields'),
-            icon: 'error',
             html: invalidMessage,
-            type: 'OK',
+            type: 'error',
             timer: 5000
           });
           this.cmdUpload++;   // enable click once button
@@ -219,8 +210,6 @@
           formData.append( "category", this.selectedCategory );
           formData.append( "file-folder", this.fileFolder );
           formData.append( "file-number", this.fileNumber );
-          // formData.append( "emulsion-down", this.chkEmulsionDown );
-          // formData.append( "color-separation", this.chkColorSeparation );
 
           for (const fileRecord of this.fileRecords) {
             formData.append( "upload-file", fileRecord.file );                  // attach the file
@@ -271,6 +260,7 @@
             this.snackbar = true;
           };          
 
+          // reset form for next input
           this.selectedCategory = 0;
           this.fileFolder = '';
           this.fileNumber = '';

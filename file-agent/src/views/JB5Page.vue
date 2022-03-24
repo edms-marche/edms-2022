@@ -6,17 +6,14 @@
     data () {
       return {
         jobNumber: "",
-        // chkBlackOverprint: false,
-        // chkSpotToCMYK: false,
-        // chkDotGain50: true,
-        // chkDotGain43: false,
-        // chkDotGain40: false,
 
         fileRecords: [],
         loading: false,
         cmdUpload: 1,
         snackbar: false,
         snackbarMessage: null,
+
+        invalidInput: false,
       }
     },
 
@@ -31,11 +28,6 @@
        * 由 localStorage 攞番上次嘅選擇出嚟
        */
       // this.chkGreyscale = JSON.parse( localStorage.getItem( 'plate-greyscale' )) === true;
-      // this.chkBlackOverprint = JSON.parse( localStorage.getItem( 'plate-black-overprint' )) === true;
-      // this.chkSpotToCMYK = JSON.parse( localStorage.getItem( 'plate-spot-to-cmyk' )) === true;
-      // this.chkDotGain50 = JSON.parse( localStorage.getItem( 'plate-dot-gain-50' )) === true;
-      // this.chkDotGain43 = JSON.parse( localStorage.getItem( 'plate-dot-gain-43') ) === true;
-      // this.chkDotGain40 = JSON.parse( localStorage.getItem( 'plate-dot-gain-40' )) === true;
     },
 
     methods: {
@@ -203,29 +195,43 @@
        * uploadAllFiles: 一次過，上傳哂所有檔案
        */
       uploadAllFiles ( ) {
-        // const suffix = getFileExtension(fileRecord.file.name).toLowerCase();
+        var invalidMessage = '';
+        if (this.fileNumber == null || this.fileNumber.length == 0) {
+          invalidMessage += this.$t( 'jb5.job-number' );
+          this.invalidInput = true;
+        }
+        if (invalidMessage !== '') {
+          invalidMessage = '<div style="border: 2px dashed #aaa;">' + invalidMessage + '</div>'
+        }
 
-        // 用 FormData 傳送 client 資料去 server
-        const formData = new FormData();
+        if (this.invalidInput) {
+          this.$fire({        // prompt error message
+            title: this.$t('required-fields'),
+            html: invalidMessage,
+            type: 'error',
+            timer: 5000
+          });
+          this.cmdUpload++;   // enable click once button
+        }
+        else {
+          // const suffix = getFileExtension(fileRecord.file.name).toLowerCase();
+
+          //* 用 FormData 傳送 user 填寫咗嘅資料去 server
+          const formData = new FormData();
           formData.append( "job-number", this.jobNumber );
-          // formData.append( "black-overprint", this.chkBlackOverprint );
-          // formData.append( "spot-to-cmyk", this.chkSpotToCMYK );
-          // formData.append( "dot-gain-50", this.chkDotGain50 );
-          // formData.append( "dot-gain-43", this.chkDotGain43 );
-          // formData.append( "dot-gain-40", this.chkDotGain40 );
 
           for (const fileRecord of this.fileRecords) {
             formData.append( "upload-file", fileRecord.file );                  // attach the file
           }
 
-        var _UploadUrl = 'https://rest.marche.com.hk/api/fileAgent/jb5/' ;
+          var _UploadUrl = 'https://rest.marche.com.hk/api/fileAgent/jb5/' ;
 
-        window.console.log( "Endpoint: ", _UploadUrl );
+          window.console.log( "Endpoint: ", _UploadUrl );
 
-        /**
-         * 參考：https://javascript.info/xmlhttprequest
-         */
-        const xhr = new XMLHttpRequest();                                       // 1. Create a new XMLHttpRequest object
+          /**
+           * 參考：https://javascript.info/xmlhttprequest
+           */
+          const xhr = new XMLHttpRequest();                                       // 1. Create a new XMLHttpRequest object
 
           xhr.upload.addEventListener("loadstart", function (e) {
             window.console.log( 'Upload started', e.total );
@@ -263,8 +269,11 @@
             this.snackbar = true;
           };          
 
-        this.fileRecords = [];    // 清理 uploader
-        this.cmdUpload++;         // 復完 上傳 button
+          // reset form for next input
+          this.jobNumber = '';
+          this.fileRecords = [];    // 清理 uploader
+          this.cmdUpload++;         // 復完 上傳 button
+        }
       },
       isLetterNumber(e) {
         let char = String.fromCharCode(e.keyCode);
