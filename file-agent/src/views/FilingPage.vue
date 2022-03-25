@@ -264,7 +264,7 @@
           };          
 
           // reset form for next input
-          this.selectedCategory = 0;
+          this.selectedCategory = null;
           this.fileFolder = '';
           this.fileNumber = '';
           this.fileRecords = [];        // 清理 uploader

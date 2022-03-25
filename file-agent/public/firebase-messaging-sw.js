@@ -9,13 +9,14 @@ if (firebase.messaging.isSupported()) {
     // your app's Firebase config object.
     // https://firebase.google.com/docs/web/setup#config-object
     const config = {
-        apiKey: 'AIzaSyCA0X5oGhPZPKLo-1c8lnilI7esk2y_NbU',
-        authDomain: "file-agent.firebaseapp.com",
-        databaseURL: "https://x5-2018.firebaseio.com",
-        projectId: "file-agent",
-        storageBucket: "file-agent.appspot.com",
-        messagingSenderId: "772018130355",
-        appId: "1:772018130355:web:22e514161e30434a0bcfc6"
+        apiKey: "AIzaSyC-A0pzSXFX1wow2oXUqTFKhlAIZE4zmq4",
+        authDomain: "jb5-2022.firebaseapp.com",
+        databaseURL: "https://jb5-2022.firebaseio.com",
+        projectId: "jb5-2022",
+        storageBucket: "jb5-2022.appspot.com",
+        messagingSenderId: "24728601823",
+        appId: "1:24728601823:web:4ccf22ddce2f1dc752d56a",
+        measurementId: "G-DJFJ7HGSX3"
     };
 
     firebase.initializeApp(config);
