@@ -181,6 +181,8 @@
        */
       uploadAllFiles ( ) {
         var invalidMessage = '';
+        var textColor = JSON.parse(localStorage.getItem('darkMode')) === true ? 'whitesmoke' : '#2f2f2f';
+
         if (this.selectedCategory == null) {
           invalidMessage = this.$t('filing.category' ) + '</br>';
           this.invalidInput = true;
@@ -190,12 +192,13 @@
           this.invalidInput = true;
         }
         if (invalidMessage !== '') {
-          invalidMessage = '<div style="border: 2px dashed #aaa;">' + invalidMessage + '</div>'
+          invalidMessage = '<div style="border: 2px dashed #aaa;color:' + textColor + '">' + invalidMessage + '</div>'
         }
 
         if (this.invalidInput) {
           this.$fire({        // prompt error message
-            title: this.$t('required-fields'),
+            title: '<h5 style="color:' + textColor + ';">' + this.$t('required-fields') + '</h1>',
+            background: JSON.parse(localStorage.getItem('darkMode')) === true ? '#2F2F2F' : 'whitesmoke',
             html: invalidMessage,
             type: 'error',
             timer: 5000
