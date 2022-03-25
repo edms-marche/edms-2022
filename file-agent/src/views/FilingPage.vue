@@ -188,9 +188,14 @@
           this.invalidInput = true;
         }
         if (this.fileNumber == null || this.fileNumber.length == 0) {
-          invalidMessage += this.$t( 'filing.file-number' );
+          invalidMessage += this.$t( 'filing.file-number' ) + '</br>';
           this.invalidInput = true;
         }
+        if (this.fileRecords.length == 0) {
+          invalidMessage += this.$t( 'uploader.upload' );
+          this.invalidInput = true;
+        }
+
         if (invalidMessage !== '') {
           invalidMessage = '<div style="border: 2px dashed #aaa;color:' + textColor + '">' + invalidMessage + '</div>'
         }

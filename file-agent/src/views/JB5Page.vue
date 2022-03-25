@@ -199,9 +199,14 @@
         var textColor = JSON.parse(localStorage.getItem('darkMode')) === true ? 'whitesmoke' : '#2f2f2f';
         
         if (this.fileNumber == null || this.fileNumber.length == 0) {
-          invalidMessage += this.$t( 'jb5.job-number' );
+          invalidMessage += this.$t( 'jb5.job-number' ) + '</br>';
           this.invalidInput = true;
         }
+        if (this.fileRecords.length == 0) {
+          invalidMessage += this.$t( 'uploader.upload' );
+          this.invalidInput = true;
+        }
+
         if (invalidMessage !== '') {
           invalidMessage = '<div style="border: 2px dashed #aaa;color:' + textColor + '">' + invalidMessage + '</div>'
         }
