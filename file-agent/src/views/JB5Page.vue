@@ -197,6 +197,7 @@
       uploadAllFiles ( ) {
         var invalidMessage = '';
         var textColor = JSON.parse(localStorage.getItem('darkMode')) === true ? 'whitesmoke' : '#2f2f2f';
+        var bgColor = JSON.parse(localStorage.getItem('darkMode')) === true ? '#2f2f2f' : 'whitesmoke';
         
         if (this.fileNumber == null || this.fileNumber.length == 0) {
           invalidMessage += this.$t( 'jb5.job-number' ) + '</br>';
@@ -214,7 +215,7 @@
         if (this.invalidInput) {
           this.$fire({        // prompt error message: https://github.com/constkhi/vue-simple-alert
             title: '<h5 style="color:' + textColor + ';">' + this.$t('required-fields') + '</h1>',
-            background: JSON.parse(localStorage.getItem('darkMode')) === true ? '#2F2F2F' : 'whitesmoke',
+            background: bgColor,
             html: invalidMessage,
             type: 'error',
             timer: 5000
