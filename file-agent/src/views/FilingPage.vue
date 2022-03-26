@@ -88,6 +88,10 @@
       fileDeleted(val) {
         window.console.log('Deleted: ', val);
       },
+      onBeforeDelete(val){
+        this.$refs.vueFileAgent.deleteFileRecord(val);
+        window.console.log('OnBeforeDeleted: ', val.file.name);
+      },
       /**
        * uploadFiles: on Upload button click
        */
@@ -326,7 +330,10 @@
             type: this.$t('uploader.upload-type-error'),    //? 兩種方法都淨係出英文
             size: this.getSizeErrorText,                    //? 奇怪？
           }" 
-        @select="filesSelected($event)" @delete="fileDeleted($event)" v-model="fileRecords">
+        @select="filesSelected($event)"
+        @beforedelete="onBeforeDelete($event)"
+        @delete="fileDeleted($event)"
+        v-model="fileRecords">
       </VueFileAgent>
       <v-layout justify-end>
         <v-btn class="ma-2" outlined @click.once="uploadAllFiles" :key="cmdUpload" >{{ $t('uploader.upload') }}</v-btn>

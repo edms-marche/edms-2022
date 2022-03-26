@@ -89,6 +89,10 @@
       fileDeleted(val) {
         window.console.log('Deleted: ', val);
       },
+      onBeforeDelete(val){
+        this.$refs.vueFileAgent.deleteFileRecord(val);
+        window.console.log('OnBeforeDeleted: ', val.file.name);
+      },
       /**
        * uploadFilesOneByOne: on Upload button click
        */
@@ -329,6 +333,7 @@
             size: this.getSizeErrorText,                    //? 奇怪？
           }"
         @select="filesSelected($event)"
+        @beforedelete="onBeforeDelete($event)"
         @delete="fileDeleted($event)"
         v-model="fileRecords"
         label="vueFileAgent">
