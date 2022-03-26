@@ -317,7 +317,7 @@
         <v-text-field name="jobNumber" prepend-icon="mdi-numeric-5-box" :label="$t('jb5.job-number-required')" v-model="jobNumber" @keypress="isLetterNumberDashNoSpace($event)" required></v-text-field>
       </v-row>
 
-      <!-- File Uploader -->
+      <!-- File Uploader, refer: https://github.com/safrazik/vue-file-agent#advanced-usage -->
       <VueFileAgent 
         ref="vueFileAgent"
           :theme="'list'"

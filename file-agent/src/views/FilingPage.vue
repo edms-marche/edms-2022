@@ -322,7 +322,7 @@
         <v-text-field name="fileNumber" prepend-icon="mdi-alpha-f-box-outline" :label="$t('filing.file-number-required')" v-model="fileNumber" @keypress="isLetterNumberDashDotUnderscoreNoSpace($event)" required></v-text-field>
       </v-row>
 
-      <!-- File Uploader -->
+      <!-- File Uploader, refer: https://github.com/safrazik/vue-file-agent#advanced-usage -->
       <VueFileAgent ref="vueFileAgent" :theme="'list'" :multiple="true" :deletable="true" :meta="true"
         :accept="'.pdf,.ps'" :maxSize="'512MB'" :maxFiles="10" 
         :helpText="$t('uploader.upload-help-text')"
