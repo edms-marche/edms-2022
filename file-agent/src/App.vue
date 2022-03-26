@@ -86,6 +86,11 @@ export default {
             console.log('用户允许通知');
         } else if (Notification.permission === 'denied') {
             console.log('用户拒绝通知');
+            Notification.requestPermission().then(function (permission) {
+            if (permission === "granted") {
+                // If the user accepts, let's create a notification
+            }
+            });            
         } else {
             console.log('用户还没选择，去向用户申请权限吧');
         }
