@@ -1,7 +1,9 @@
 ## build stage
 
 # 去 DockerHub 借用 official 嘅 node image：https://hub.docker.com/_/node/
-FROM node:lts-alpine as build-stage
+# v3.10 嘅 node v14.17.0 最接近我 dev 用嘅 node v14.19.0，會少啲 bugs
+#FROM node:lts-alpine3.10 as build-stage
+FROM node:14.9.0-alpine3.12 as build-stage
 
 # set working directory，參考：https://www.educative.io/edpresso/what-is-the-workdir-command-in-docker
 WORKDIR /app
