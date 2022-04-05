@@ -36,7 +36,7 @@ export default {
          */
         tryToLogIn() {
             const { username, password, isValid } = this;
-            this.tryingToLogIn =true;
+            this.tryingToLogIn = true;
 
             window.console.log("Valid: ", isValid);
             window.console.log("User Name: ", username);
@@ -47,7 +47,7 @@ export default {
                  * 第一級：login => jwt token，第二級：subscribe FCM notifications
                  * 留意：nested axios 要加 async wait，叫第一級等埋第二級先可以收工
                  */
-                this.$store.dispatch(AUTH_REQUEST, { username, password })  // 1. login
+                this.$store.dispatch(AUTH_REQUEST, { username, password })  // 1. login authentication
                     .then(async () => {
                         await this.$store.dispatch(AUTH_SUBSCRIBE_FCM)      // 2. subscribe FCM
                             .then(() => {

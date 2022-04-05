@@ -27,26 +27,30 @@ const actions = {
     return new Promise((resolve, reject) => {                     // The Promise used for router redirect in login
       commit(AUTH_REQUEST);
 
-      const url = `${_BaseURL}/token/${user.username}/${user.password}/20300701000000/`;  //? Expiry Date 唔可以太耐，2046 係唔得嘅
+      //* 去 REST 申請隻 JWT Token，Expiry Date 唔可以太耐，2046 係唔得嘅
+      const url = `${_BaseURL}/token/staff/${user.username}/${user.password}/20300701000000/`;
 
+      //! 2022.04.02 paulus: 有害無益
+      //saxios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
       axios({url: url, method: 'GET' })
         .then(resp => {
-          const token = resp.data                                 // retrive the token from the response
+          const token = resp.data                                 // 成功，拆解隻 token 備用
 
-          window.console.log("Token: ", token);
+          window.console.log("收到 Token: ", token);
 
-          localStorage.setItem("user-jwt-token", token);              // store the auth token
+          localStorage.setItem("user-jwt-token", token);          // store the auth token
           localStorage.setItem("login-name", user.username);      // store the login name
           //localStorage.setItem("login-password", user.password);  // store the login password 取消
 
-          axios.defaults.headers.common['Authorization'] = `Bearer "${token}"`;   // set the header of axios to the token value
+          // 將 token 放喺 axios 嘅 header，方便接下來嘅 JwtAuthentication request
+          axios.defaults.headers.common['Authorization'] = `Bearer "${token}"`;
 
           commit(AUTH_SUCCESS, resp);
-          
           dispatch(USER_REQUEST);                                 // you have your token, now log in your user :)
           resolve(resp);
         })
         .catch( err => {
+          window.console.log("收唔倒 Token: ", err);
           commit( AUTH_ERROR, err );
           localStorage.removeItem("user-jwt-token");
           localStorage.removeItem("login-name");
@@ -96,6 +100,7 @@ const actions = {
         "Content-Type": "application/json"
       };
 
+      window.console.log('Subscribe Request Header: ', header);
       axios.post(url, data, { headers: header} )
         .then((resp) => {
           const result = resp.data[0];
