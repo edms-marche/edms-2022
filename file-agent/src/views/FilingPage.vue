@@ -15,7 +15,7 @@
         snackbar: false,
         snackbarMessage: null,
 
-        categories: ['Admin', 'Artwork'],     // nextcloud 中的 Shared Folder
+        categories: fnHelper.getFilingCategory(),     // nextcloud 中的 Shared Folder
         invalidInput: false,
       };
     },
@@ -291,6 +291,19 @@
         if (/^[A-Za-z0-9-._/]+$/.test(char)) return true;
         else e.preventDefault();
       },
+      // getCategories: function() {
+      //   axios
+      //     .get(url + "/fileAgent/getFilingCategories")
+      //     .then(({
+      //       data
+      //     }) => {
+      //       window.console.log(data);
+      //       this.categories = data;
+      //     })
+      //     .catch(err => {
+      //       window.console.log(err.reponse);
+      //     });
+      // },
     },
   }
 </script>

@@ -3,8 +3,9 @@ import { AUTH_REQUEST, AUTH_ERROR, AUTH_SUCCESS, AUTH_LOGOUT, AUTH_SUBSCRIBE_FCM
 import { USER_REQUEST } from "../actions/user";
 
 import axios from 'axios';
+import global from '@/config/globals.js';
 
-const _BaseURL = "https://rest.marche.com.hk/api";   //* 唔同 api 就改
+//const _BaseURL = "https://rest.marche.com.hk/api";   //* 唔同 api 就改
 
 const state = {
   token: localStorage.getItem("user-jwt-token") || "",
@@ -28,7 +29,7 @@ const actions = {
       commit(AUTH_REQUEST);
 
       //* 去 REST 申請隻 JWT Token，Expiry Date 唔可以太耐，2046 係唔得嘅
-      const url = `${_BaseURL}/token/staff/${user.username}/${user.password}/20300701000000/`;
+      const url = `${global.apiBaseUrl}/token/staff/${user.username}/${user.password}/20300701000000/`;
 
       //! 2022.04.02 paulus: 有害無益
       //saxios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
@@ -82,7 +83,7 @@ const actions = {
     return new Promise((resolve, reject) => {                     // The Promise used for router redirect in login
       commit(AUTH_SUBSCRIBE_FCM);
 
-      const url = `${_BaseURL}/fileAgent/subscribe/`;
+      const url = `${global.apiBaseUrl}/fileAgent/subscribe/`;
       const data = {
         FCM: {
           Token: localStorage.getItem('user-fcm-token')

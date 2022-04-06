@@ -3,8 +3,8 @@ import Vue from "vue";
 import { AUTH_LOGOUT } from "../actions/auth";
 
 import axios from 'axios';
-
-const _BaseURL = "https://rest.marche.com.hk/api";   //* 唔同 api 就改
+import global from '@/config/globals.js';
+//const _BaseURL = "https://rest.marche.com.hk/api";   //* 唔同 api 就改
 
 const state = { status: "", profile: {} };
 
@@ -23,7 +23,7 @@ const actions = {
 
       commit(USER_REQUEST);
 
-      const url = `${_BaseURL}/user/`;
+      const url = `${global.apiBaseUrl}/user/`;
       window.console.log("Auth: ", axios.defaults.headers.common['Authorization']);
       
       axios({url: url, method: 'GET' })
