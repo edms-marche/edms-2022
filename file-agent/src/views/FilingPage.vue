@@ -15,7 +15,7 @@
         snackbar: false,
         snackbarMessage: null,
 
-        categories: fnHelper.getFilingCategory(),     // nextcloud 中的 Shared Folder
+        categories: [],     // nextcloud 中的 Shared Folder
         invalidInput: false,
       };
     },
@@ -25,12 +25,19 @@
         return i18nHelper.getText('uploader.upload-size-error');
       },
     },
+    created() {
+    },
 
     /**
      * 由 localStorage 攞番上次嘅選擇出嚟
      */
-    mounted() {
+    async mounted() {
       // this.chkPositive = JSON.parse(localStorage.getItem('film-positive')) === true;
+      const list = await fnHelper.getFilingCategory();
+      window.console.log("List: " + list);
+        this.categories = list;
+        window.console.log("Categories: " + this.categories);
+        // this.$forceUpdate();
     },
     methods: {
       onOptionChanged(val, tag) {
@@ -291,19 +298,6 @@
         if (/^[A-Za-z0-9-._/]+$/.test(char)) return true;
         else e.preventDefault();
       },
-      // getCategories: function() {
-      //   axios
-      //     .get(url + "/fileAgent/getFilingCategories")
-      //     .then(({
-      //       data
-      //     }) => {
-      //       window.console.log(data);
-      //       this.categories = data;
-      //     })
-      //     .catch(err => {
-      //       window.console.log(err.reponse);
-      //     });
-      // },
     },
   }
 </script>

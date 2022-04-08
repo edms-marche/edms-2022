@@ -1,3 +1,3 @@
 export default {
-    apiBaseUrl: 'https://rest.marche.com.hk',
+    apiBaseUrl: 'https://rest.marche.com.hk/api',
 };
