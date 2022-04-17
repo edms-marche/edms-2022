@@ -33,11 +33,9 @@
      */
     async mounted() {
       // this.chkPositive = JSON.parse(localStorage.getItem('film-positive')) === true;
-      const list = await fnHelper.getFilingCategory();
-      window.console.log("List: " + list);
-        this.categories = list;
-        window.console.log("Categories: " + this.categories);
-        // this.$forceUpdate();
+
+      // 去 server 攞 NextCloud 嘅 Share Folders
+      this.categories = await fnHelper.getFilingCategory();
     },
     methods: {
       onOptionChanged(val, tag) {
@@ -227,7 +225,7 @@
 
           //* 用 FormData 傳送 user 填寫咗嘅資料去 server
           const formData = new FormData();
-          formData.append( "category", this.selectedCategory );
+          formData.append( "filing-category", this.selectedCategory );
           formData.append( "file-folder", this.fileFolder );
           formData.append( "file-number", this.fileNumber );
 

@@ -10,8 +10,7 @@ export default {
             var result = [];    //['Admin', 'Artwork', '萬智書架'];     // 預設數值
 
             const url = `${global.apiBaseUrl}/fileAgent/filingCategory/`;
-            var token = localStorage.getItem('user-jwt-token');
-
+            var token = localStorage.getItem('user-jwt-token');         // 喺 localstorage 攞個 JWT Token
             window.console.log("Auth: ", token);
             axios.defaults.headers.common['Authorization'] = `Bearer "${token}"`;
             axios({url: url, method: 'GET' })
