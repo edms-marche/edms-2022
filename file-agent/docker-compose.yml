@@ -10,7 +10,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - '8001:80'
-# 如果想 runtime 修改個 ngixn.conf，un-comment 以下約行
+# 如果想 runtime 修改個 ngixn.conf，un-comment 以下幾行
 #    volumes:
 #      - file-agent:/etc/nginx/conf.d:rw
 #

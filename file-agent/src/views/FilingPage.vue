@@ -193,6 +193,7 @@
         var textColor = JSON.parse(localStorage.getItem('darkMode')) === true ? 'whitesmoke' : '#2f2f2f';
         var bgColor = JSON.parse(localStorage.getItem('darkMode')) === true ? '#2f2f2f' : 'whitesmoke';
 
+        this.invalidInput = false;
         if (this.selectedCategory == null) {
           invalidMessage = this.$t('filing.category' ) + '</br>';
           this.invalidInput = true;
@@ -296,6 +297,11 @@
         if (/^[A-Za-z0-9-._/]+$/.test(char)) return true;
         else e.preventDefault();
       },
+      isLetterNumberDashDotUnderscoreBackSlashNoSpace(e) {
+        let char = String.fromCharCode(e.keyCode);
+        if (/^[A-Za-z0-9-._\\]+$/.test(char)) return true;
+        else e.preventDefault();
+      },
     },
   }
 </script>
@@ -320,7 +326,7 @@
       </v-row>
       <v-row no-gutters align="center">
         <!-- 檔案號碼 -->
-        <v-text-field name="fileFolder" prepend-icon="mdi mdi-folder-plus" :label="$t('filing.folder-optional')" v-model="fileFolder" @keypress="isLetterNumberDashDotUnderscoreSlashNoSpace($event)"></v-text-field>
+        <v-text-field name="fileFolder" prepend-icon="mdi mdi-folder-plus" :label="$t('filing.folder-optional')" v-model="fileFolder" @keypress="isLetterNumberDashDotUnderscoreBackSlashNoSpace($event)"></v-text-field>
       </v-row>
       <v-row no-gutters align="center">
         <!-- 檔案號碼 -->

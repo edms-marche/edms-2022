@@ -203,7 +203,8 @@
         var textColor = JSON.parse(localStorage.getItem('darkMode')) === true ? 'whitesmoke' : '#2f2f2f';
         var bgColor = JSON.parse(localStorage.getItem('darkMode')) === true ? '#2f2f2f' : 'whitesmoke';
         
-        if (this.fileNumber == null || this.fileNumber.length == 0) {
+        this.invalidInput = false;
+        if (this.jobNumber == null || this.jobNumber.length == 0) {
           invalidMessage += this.$t( 'jb5.job-number' ) + '</br>';
           this.invalidInput = true;
         }
